@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>273</x>
+      <y>413</y>
+      <w>245</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>Client
+--
+-ip: string
+-port: int
+-clientHandler: string
+-token: Long
+-list: List&lt;FileTransmitter&gt;
+-socket: Socket
+-socketIsActive: Boolean
+-objectInputStream:ObjectInputStream
+-objectoutputStream:ObjectOutputStream
+--
++Client(List&lt;FileTransmitter&gt; list,XmlConfig config)
++connection(): void
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>0</y>
+      <w>168</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>FileTransmitter
+--
+-id: int
+-amount: Long
+-accountId: int
+-serverToken:Long
+-transaction:Boolean
+-clientName:String
+--
++getClientName(): String
++setClientNam(String name):void
++setTransaction(Boolean t):void
++getTransaction():Boolean
++getServerToken():Long
++setServerToken(Long token): void
++getId(): int
++setId(int id):void
++getAmount():Long
++setAmount(Long amount):void
++getAccountId():int
++setAccoutnId(int accountId):void
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>616</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>XmlConfig
+--
+-serverIp:String;
+-serverPort:Integer
+-name: String
+-serverToken: long
+--
+getters &amp; setters
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>259</x>
+      <y>252</y>
+      <w>259</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>XmlToDto
+--
+-listOfDtos: List&lt;FileTransmitter&gt;
++readTransaction(String path): List&lt;FileTransmitter&gt;
++readConfig(String path): XmlConfig
+
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>84</x>
+      <y>357</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Main
+--
++main(String Args[]): void
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>364</y>
+      <w>49</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>462</y>
+      <w>63</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>224</y>
+      <w>21</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>546</x>
+      <y>441</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Server
+--
+-port:int
+-socket:Socket
+-serverSocket:ServerSocket
+--
++Service()
++start()
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>546</x>
+      <y>259</y>
+      <w>168</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>ClientHandler implenets Runnable
+--
+-fileTransmitter:FileTransmitter
+-result:boolean
+-socket:Socket
+-serverToken:Long
+-socketIsAlive:boolean
+-out:ObjectInputStream
+-intput:ObjectInputStream
+--
++ClientHandler(Socket)
++run(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>602</x>
+      <y>385</y>
+      <w>21</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>224</y>
+      <w>21</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>588</y>
+      <w>21</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>742</x>
+      <y>273</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>DataModel
+--
+-result: Long
+-calculations: Calculations
+-con: Connenction
+--
++connectToDB(int clientId,long amount):boolean
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>707</x>
+      <y>350</y>
+      <w>49</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>735</x>
+      <y>441</y>
+      <w>210</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Calculations
+--
+
+--
+withDraw(Long accountBalance,long amount)
+deposite(Long accountBalance,long amount) 
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>399</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+</diagram>
